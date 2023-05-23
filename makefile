@@ -1,10 +1,7 @@
 all: giana
 
-INCLUDES += -IC:\Users\kropp\opt\sdl12\include
-LIBS += -LC:\Users\kropp\opt\sdl12\lib -lSDL.dll
-LIBS += -Wl,--whole-archive C:\Users\kropp\opt\sdl12\lib\libSDLmain.a -Wl,--whole-archive
-#LIBS += --whole-archive C:\Users\kropp\opt\sdl12\lib\libSDLmain.a --whole-archive
-#LIBS += -lstdc++
+INCLUDES += $(shell pkg-config --cflags sdl)
+LIBS += $(shell pkg-config --libs sdl)
 
 OBJECTS := \
 	main.o animation.o check_collision_goodies.o check_collision_tiles.o check_collision_tiles_special.o \
